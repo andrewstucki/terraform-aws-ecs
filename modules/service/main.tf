@@ -129,7 +129,7 @@ resource "aws_ecs_service" "this" {
   scheduling_strategy = local.is_fargate ? "REPLICA" : var.scheduling_strategy
 
   dynamic "service_connect_configuration" {
-    for_each = length(var.service_connect_configuration) > 0 ? [var.service_connect_configuration] : []
+    for_each = length(var.service_connect_configuration) > 0 ? var.service_connect_configuration : []
 
     content {
       enabled = try(service_connect_configuration.value.enabled, true)
@@ -315,7 +315,7 @@ resource "aws_ecs_service" "ignore_task_definition" {
   scheduling_strategy = local.is_fargate ? "REPLICA" : var.scheduling_strategy
 
   dynamic "service_connect_configuration" {
-    for_each = length(var.service_connect_configuration) > 0 ? [var.service_connect_configuration] : []
+    for_each = length(var.service_connect_configuration) > 0 ? var.service_connect_configuration : []
 
     content {
       enabled = try(service_connect_configuration.value.enabled, true)

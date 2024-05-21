@@ -166,8 +166,8 @@ variable "scheduling_strategy" {
 
 variable "service_connect_configuration" {
   description = "The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace"
-  type        = any
-  default     = {}
+  type        = list
+  default     = []
 }
 
 variable "service_registries" {

@@ -131,7 +131,7 @@ module "ecs_service" {
     }
   }
 
-  service_connect_configuration = {
+  service_connect_configuration = [{
     namespace = aws_service_discovery_http_namespace.this.arn
     service = {
       client_alias = {
@@ -141,7 +141,7 @@ module "ecs_service" {
       port_name      = local.container_name
       discovery_name = local.container_name
     }
-  }
+  }]
 
   load_balancer = {
     service = {
