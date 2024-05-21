@@ -177,7 +177,7 @@ resource "aws_ecs_service" "this" {
 
             content {
               idle_timeout_seconds        = try(timeout.value.idle_timeout_seconds, null)
-              per_request_timeout_seconds = try(timeout.value.per_request_timeout_seconds, nil)
+              per_request_timeout_seconds = try(timeout.value.per_request_timeout_seconds, null)
             }
           }
         }
